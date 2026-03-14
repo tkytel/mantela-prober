@@ -117,16 +117,19 @@ def save_state(state: dict[str, ProviderState]) -> None:
 
 def validate_url(url: str) -> str | None:
     if not url:
-        return "mantela URL is empty"
+        return "Mantela URL が空です"
 
     parsed = urllib.parse.urlparse(url)
     if parsed.scheme not in {"http", "https"} or not parsed.netloc:
-        return "mantela URL is invalid"
+        return "Mantela URL が不正です"
 
     return None
 
 
 def probe_provider(provider: ProviderState) -> str | None:
+    if not provider.mantela:
+        return None
+
     validation_error = validate_url(provider.mantela)
     if validation_error:
         return validation_error
@@ -154,11 +157,11 @@ def build_notification(newly_unreachable: list[tuple[ProviderState, str]]) -> di
         lines.append(
             "\n".join(
                 [
-                    f"- name: {provider.name or '(unknown)'}",
+                    f"- 局: {provider.name or '(unknown)'}",
                     f"  prefix: {provider.prefix or '(none)'}",
-                    f"  identifier: {provider.identifier or '(none)'}",
-                    f"  mantela: {provider.mantela or '(empty)'}",
-                    f"  reason: {reason}",
+                    f"  識別子: {provider.identifier or '(none)'}",
+                    f"  Mantela: {provider.mantela or '(empty)'}",
+                    f"  理由: {reason}",
                 ]
             )
         )
@@ -167,7 +170,7 @@ def build_notification(newly_unreachable: list[tuple[ProviderState, str]]) -> di
         "content": "Mantela provider unreachable detected.",
         "embeds": [
             {
-                "title": f"Newly unreachable providers: {len(newly_unreachable)}",
+                "title": f"新たに Mantela に疎通できない局が見つかりました: {len(newly_unreachable)}",
                 "description": "\n\n".join(lines)[:4000],
                 "color": 15158332,
             }
@@ -199,8 +202,13 @@ def main() -> int:
     next_state: dict[str, ProviderState] = {}
     newly_unreachable: list[tuple[ProviderState, str]] = []
     recovered: list[ProviderState] = []
+    skipped = 0
 
     for provider in providers:
+        if not provider.mantela:
+            skipped += 1
+            continue
+
         error = probe_provider(provider)
         if error is None:
             if provider.key in previous_state:
@@ -215,6 +223,7 @@ def main() -> int:
     send_discord_notification(newly_unreachable)
 
     print(f"Checked providers: {len(providers)}")
+    print(f"Skipped providers without mantela URL: {skipped}")
     print(f"Currently unreachable: {len(next_state)}")
     print(f"Newly unreachable: {len(newly_unreachable)}")
     print(f"Recovered: {len(recovered)}")
