@@ -1,42 +1,43 @@
 # mantela-prober
-Monitoring Tokyo Wide Area Telephony Network Mantela Availability
+東京広域電話網の Mantela 到達性を監視するためのリポジトリです。
 
-This repository monitors the providers listed in the providers array of the following Mantela document every hour:
+このリポジトリでは、次の Mantela ドキュメントに含まれる providers 配列を 1 時間ごとに監視します。
 
 - https://unstable.kusaremkn.com/.well-known/mantela.json
 
-## Behavior
+## 動作
 
-- Probe every provider entry in providers as an independent record.
-- If a provider's mantela URL is unreachable, invalid, empty, or does not return valid JSON, it is treated as unreachable.
-- The current unreachable set is stored in unreachable.json.
-- Only providers that newly become unreachable are sent to Discord via webhook.
-- If a provider becomes reachable again, it is removed from unreachable.json.
+- providers 配列内の各 provider エントリを個別に監視します。
+- mantela URL が空の provider は、Mantela を使っていないものとして監視対象外にします。
+- mantela URL が不正、到達不能、または有効な JSON を返さない場合は不通とみなします。
+- 現在不通の provider 一覧は unreachable.json に保存します。
+- 以前 unreachable.json に記録されておらず、新たに不通になった provider だけを Discord Webhook に通知します。
+- 復旧した provider は unreachable.json から削除します。
 
 ## GitHub Actions
 
-The workflow is defined in .github/workflows/mantela-prober.yml and runs:
+ワークフローは [.github/workflows/mantela-prober.yml](.github/workflows/mantela-prober.yml) にあります。実行タイミングは次のとおりです。
 
-- Every hour
-- Manually via workflow_dispatch
+- 1 時間ごとの定期実行
+- workflow_dispatch による手動実行
 
-The workflow updates unreachable.json and pushes the change back to the repository so the next run can detect newly unreachable providers correctly.
+ワークフローは実行結果に応じて unreachable.json を更新し、その差分をリポジトリへ push します。これにより、次回実行時に新規不通だけを判定できます。
 
-## Required Secret
+## 必要な Secret
 
-Set the following repository secret:
+リポジトリの Secret に次を設定してください。
 
-- DISCORD_WEBHOOK_URL: Discord Incoming Webhook URL used for newly unreachable provider notifications
+- DISCORD_WEBHOOK_URL: 新規不通の通知先となる Discord Incoming Webhook URL
 
-## Local Run
+## ローカル実行
 
-Run the checker locally with:
+ローカルで確認する場合は次を実行します。
 
 ```bash
 python scripts/check_mantela_providers.py
 ```
 
-Optional environment variables:
+必要に応じて、以下の環境変数を指定できます。
 
 - MANTELA_SOURCE_URL
 - UNREACHABLE_FILE
