@@ -8,38 +8,10 @@
       "unavailable": false
     },
     {
-      "identifier": "906286ae-3639-453f-b500-44a910445968",
-      "name": "sirin",
-      "prefix": "444",
-      "mantela": "https://raw.githubusercontent.com/sirin-interact/.well-known/refs/heads/main/mantela.json",
-      "unavailable": false
-    },
-    {
-      "identifier": "9df701c2-cecd-487e-abf4-c90a52748ffb",
-      "name": "MikaNeTEL-Suginami",
-      "prefix": "513",
-      "mantela": "https://unstable.kusaremkn.com/.well-known/suginami-mantela.json",
-      "unavailable": false
-    },
-    {
       "identifier": "c101f71a-f10d-4f39-af18-2a8f87bab5d0",
       "name": "montel",
       "prefix": "599",
       "mantela": "https://nomulabo.com/mantela/mantela.json",
-      "unavailable": false
-    },
-    {
-      "identifier": "cea45d03-c9d9-4df0-89ad-6117ceed051d",
-      "name": "KinkaNeTEL",
-      "prefix": "5551",
-      "mantela": "https://unstable.kusaremkn.com/.well-known/kinkanetel-mantela.json",
-      "unavailable": false
-    },
-    {
-      "identifier": "db30e15e-b101-4069-a406-9af3fdfe5c2e",
-      "name": "yoshina",
-      "prefix": "447",
-      "mantela": "https://yosh1na-hub.github.io/Mantela/Mantela.yoshina.json",
       "unavailable": false
     }
   ]
