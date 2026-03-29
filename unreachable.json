@@ -1,3 +1,11 @@
 {
-  "providers": []
+  "providers": [
+    {
+      "identifier": "376299fd-2ab2-4848-aa2c-18aea6f5abef",
+      "name": "Kur0den-tel",
+      "prefix": "961",
+      "mantela": "https://www.kur0den.net/.well-known/mantela.json",
+      "unavailable": false
+    }
+  ]
 }
