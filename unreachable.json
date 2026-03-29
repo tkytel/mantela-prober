@@ -1,3 +1,18 @@
 {
-  "providers": []
+  "providers": [
+    {
+      "identifier": "530251dc-0f93-4226-89c8-d71f900a1f0b",
+      "name": "tkytel-8931(891)",
+      "prefix": "891",
+      "mantela": "https://tkytel-8931.f5.si/.well-known/mantela.json",
+      "unavailable": false
+    },
+    {
+      "identifier": "530251dc-0f93-4226-89c8-d71f900a1f0b",
+      "name": "tkytel-8931(891)",
+      "prefix": "8931",
+      "mantela": "https://tkytel-8931.f5.si/.well-known/mantela.json",
+      "unavailable": false
+    }
+  ]
 }
