@@ -1,11 +1,3 @@
 {
-  "providers": [
-    {
-      "identifier": "",
-      "name": "kaji-tteru",
-      "prefix": "520",
-      "mantela": "https://kaji.jp/.well-known/mantela.json",
-      "unavailable": false
-    }
-  ]
+  "providers": []
 }
