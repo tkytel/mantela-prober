@@ -1,3 +1,11 @@
 {
-  "providers": []
+  "providers": [
+    {
+      "identifier": "e5e9120a-1b58-4eb7-b2c8-efe5b452c910",
+      "name": "moyashitel",
+      "prefix": "113",
+      "mantela": "https://moyashim-25.com/.well-known/mantela.json",
+      "unavailable": false
+    }
+  ]
 }
