@@ -1,3 +1,25 @@
 {
-  "providers": []
+  "providers": [
+    {
+      "identifier": "497F92E7-6B9F-4D33-91B9-B34E94402913",
+      "name": "sasakulab",
+      "prefix": "530",
+      "mantela": "https://sasakulab.com/.well-known/mantela.json",
+      "unavailable": true
+    },
+    {
+      "identifier": "498a3211-0f85-42a7-b2c0-44fb7095bd67",
+      "name": "zin3",
+      "prefix": "333",
+      "mantela": "https://zin3.cc/.well-known/mantela.json",
+      "unavailable": false
+    },
+    {
+      "identifier": "530251dc-0f93-4226-89c8-d71f900a1f0b",
+      "name": "tkytel-8931(891)",
+      "prefix": "8931",
+      "mantela": "https://tkytel-8931.f5.si/.well-known/mantela.json",
+      "unavailable": false
+    }
+  ]
 }
