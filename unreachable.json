@@ -1,3 +1,11 @@
 {
-  "providers": []
+  "providers": [
+    {
+      "identifier": "db30e15e-b101-4069-a406-9af3fdfe5c2e",
+      "name": "yoshina",
+      "prefix": "447",
+      "mantela": "https://yosh1na-hub.github.io/Mantela/Mantela.yoshina.json",
+      "unavailable": true
+    }
+  ]
 }
