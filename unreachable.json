@@ -1,11 +1,3 @@
 {
-  "providers": [
-    {
-      "identifier": "402b0d3f-d499-4bf7-8ef0-bd25c1edd69a",
-      "name": "ab2m-ありあな局",
-      "prefix": "462",
-      "mantela": "https://allianaab2m.github.io/mantela/mantela.json",
-      "unavailable": false
-    }
-  ]
+  "providers": []
 }
