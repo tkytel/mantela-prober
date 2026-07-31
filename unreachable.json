@@ -1,11 +1,3 @@
 {
-  "providers": [
-    {
-      "identifier": "8fa08edd-26e4-4762-99b1-109607e0fc22",
-      "name": "みゅーと東京局",
-      "prefix": "237",
-      "mantela": "https://nemnet-lab-pbx.github.io/mantela/mantela.json",
-      "unavailable": false
-    }
-  ]
+  "providers": []
 }
