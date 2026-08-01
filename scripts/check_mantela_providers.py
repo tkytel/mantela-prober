@@ -28,6 +28,7 @@ class ProviderState:
     prefix: str
     mantela: str
     unavailable: bool = False
+    failure_count: int = 0
 
     @property
     def key(self) -> str:
@@ -40,6 +41,7 @@ class ProviderState:
             "prefix": self.prefix,
             "mantela": self.mantela,
             "unavailable": self.unavailable,
+            "failure_count": self.failure_count,
         }
 
 
@@ -98,6 +100,7 @@ def load_state() -> dict[str, ProviderState]:
             prefix=str(entry.get("prefix", "")),
             mantela=str(entry.get("mantela", "")).strip(),
             unavailable=bool(entry.get("unavailable", False)),
+            failure_count=int(entry.get("failure_count", 0)),
         )
         state[provider.key] = provider
 
@@ -200,9 +203,10 @@ def main() -> int:
     providers = load_providers()
     previous_state = load_state()
     next_state: dict[str, ProviderState] = {}
-    newly_unreachable: list[tuple[ProviderState, str]] = []
+    newly_alerted: list[tuple[ProviderState, str]] = []
     recovered: list[ProviderState] = []
     skipped = 0
+    alert_threshold = 3
 
     for provider in providers:
         if not provider.mantela:
@@ -215,17 +219,32 @@ def main() -> int:
                 recovered.append(provider)
             continue
 
-        next_state[provider.key] = provider
-        if provider.key not in previous_state:
-            newly_unreachable.append((provider, error))
+        prev_count = previous_state.get(provider.key, ProviderState(
+            identifier=provider.identifier,
+            name=provider.name,
+            prefix=provider.prefix,
+            mantela=provider.mantela,
+        )).failure_count
+        new_count = prev_count + 1
+
+        next_state[provider.key] = ProviderState(
+            identifier=provider.identifier,
+            name=provider.name,
+            prefix=provider.prefix,
+            mantela=provider.mantela,
+            failure_count=new_count,
+        )
+
+        if new_count == alert_threshold:
+            newly_alerted.append((provider, error))
 
     save_state(next_state)
-    send_discord_notification(newly_unreachable)
+    send_discord_notification(newly_alerted)
 
     print(f"Checked providers: {len(providers)}")
     print(f"Skipped providers without mantela URL: {skipped}")
     print(f"Currently unreachable: {len(next_state)}")
-    print(f"Newly unreachable: {len(newly_unreachable)}")
+    print(f"Newly alerted (3 consecutive failures): {len(newly_alerted)}")
     print(f"Recovered: {len(recovered)}")
     return 0
 
