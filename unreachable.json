@@ -1,12 +1,3 @@
 {
-  "providers": [
-    {
-      "identifier": "bf979778-1d1f-4a33-abac-8cbc2f3dae91",
-      "name": "spla-tel",
-      "prefix": "944",
-      "mantela": "https://hkshuttle.github.io/tkytel/mantela.json",
-      "unavailable": false,
-      "failure_count": 1
-    }
-  ]
+  "providers": []
 }
