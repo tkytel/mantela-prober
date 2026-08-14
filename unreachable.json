@@ -1,3 +1,12 @@
 {
-  "providers": []
+  "providers": [
+    {
+      "identifier": "153048c5-db33-4e00-ad49-694762555d5c",
+      "name": "jiminy Local",
+      "prefix": "119",
+      "mantela": "https://108jiminy.jp/phone/jiminylocalmantela.json",
+      "unavailable": false,
+      "failure_count": 1
+    }
+  ]
 }
