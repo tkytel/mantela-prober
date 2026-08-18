@@ -1,12 +1,3 @@
 {
-  "providers": [
-    {
-      "identifier": "24e24ec4-746a-4736-920d-47a725201154",
-      "name": "macaron",
-      "prefix": "798",
-      "mantela": "https://telephony.jm8krg.net/.well-known/mantela.json",
-      "unavailable": false,
-      "failure_count": 1
-    }
-  ]
+  "providers": []
 }
