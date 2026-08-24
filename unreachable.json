@@ -1,3 +1,12 @@
 {
-  "providers": []
+  "providers": [
+    {
+      "identifier": "f040d6dc-7019-21a9-3af2-c8427aa9e9b9",
+      "name": "eggplants",
+      "prefix": "810",
+      "mantela": "https://egpl.dev/.well-known/mantela.json",
+      "unavailable": false,
+      "failure_count": 1
+    }
+  ]
 }
