@@ -1,12 +1,3 @@
 {
-  "providers": [
-    {
-      "identifier": "46b3929e-a4af-48ad-827a-a13d672c01d5",
-      "name": "Numekick",
-      "prefix": "884",
-      "mantela": "https://numekick.github.io/Numekick.Mantela/numekick.json",
-      "unavailable": false,
-      "failure_count": 1
-    }
-  ]
+  "providers": []
 }
