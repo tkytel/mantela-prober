@@ -1,3 +1,28 @@
 {
-  "providers": []
+  "providers": [
+    {
+      "identifier": "46b3929e-a4af-48ad-827a-a13d672c01d5",
+      "name": "Numekick",
+      "prefix": "884",
+      "mantela": "https://numekick.github.io/Numekick.Mantela/numekick.json",
+      "unavailable": false,
+      "failure_count": 1
+    },
+    {
+      "identifier": "8fa08edd-26e4-4762-99b1-109607e0fc22",
+      "name": "みゅーと東京局",
+      "prefix": "237",
+      "mantela": "https://nemnet-lab-pbx.github.io/mantela/mantela.json",
+      "unavailable": false,
+      "failure_count": 1
+    },
+    {
+      "identifier": "91c5f34f-c178-4cfe-a488-be6ed00fac3b",
+      "name": "hieri",
+      "prefix": "890",
+      "mantela": "https://hieri1021.github.io/.well-known/mantela.json",
+      "unavailable": false,
+      "failure_count": 1
+    }
+  ]
 }
