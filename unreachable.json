@@ -1,20 +1,3 @@
 {
-  "providers": [
-    {
-      "identifier": "31e54b78-fdf0-4733-aa6c-60b5a92bb3c0",
-      "name": "roi-tel",
-      "prefix": "732",
-      "mantela": "https://roiarise.github.io/mantela.json",
-      "unavailable": false,
-      "failure_count": 1
-    },
-    {
-      "identifier": "4a96b422-c07e-7b84-82aa-cd665e1e69a8",
-      "name": "8yazaki",
-      "prefix": "808",
-      "mantela": "https://8yazaki.github.io/mantela/mantela.json",
-      "unavailable": false,
-      "failure_count": 1
-    }
-  ]
+  "providers": []
 }
