@@ -1,3 +1,20 @@
 {
-  "providers": []
+  "providers": [
+    {
+      "identifier": "530251dc-0f93-4226-89c8-d71f900a1f0b",
+      "name": "tkytel-8931(891)",
+      "prefix": "891",
+      "mantela": "https://tkytel-8931.f5.si/.well-known/mantela.json",
+      "unavailable": false,
+      "failure_count": 1
+    },
+    {
+      "identifier": "f5c44210-8cb8-4e87-85a7-df3d3ff951e6",
+      "name": "pepepper",
+      "prefix": "617",
+      "mantela": "https://www.pepepper.net/.well-known/mantela.json",
+      "unavailable": false,
+      "failure_count": 1
+    }
+  ]
 }
