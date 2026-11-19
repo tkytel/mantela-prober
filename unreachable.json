@@ -1,12 +1,3 @@
 {
-  "providers": [
-    {
-      "identifier": "XXX:くらげ局",
-      "name": "くらげ局",
-      "prefix": "495",
-      "mantela": "https://monolith-rave.xyz/tkytel/mantera.json",
-      "unavailable": false,
-      "failure_count": 1
-    }
-  ]
+  "providers": []
 }
